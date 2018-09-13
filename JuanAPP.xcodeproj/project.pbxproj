@@ -14,6 +14,7 @@
 		A30EB387212653CF00F7D2B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30EB385212653CF00F7D2B0 /* LaunchScreen.storyboard */; };
 		A30EB392212653CF00F7D2B0 /* JuanAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30EB391212653CF00F7D2B0 /* JuanAPPTests.swift */; };
 		A30EB39D212653CF00F7D2B0 /* JuanAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30EB39C212653CF00F7D2B0 /* JuanAPPUITests.swift */; };
+		A33E0611212F797B00243B6D /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A33E0610212F797B00243B6D /* Splash.png */; };
 		A3C45C6B212E385200B2B8D2 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C45C6A212E385200B2B8D2 /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		A30EB398212653CF00F7D2B0 /* JuanAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JuanAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30EB39C212653CF00F7D2B0 /* JuanAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuanAPPUITests.swift; sourceTree = "<group>"; };
 		A30EB39E212653CF00F7D2B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33E0610212F797B00243B6D /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = "arte demo quiz/Splash.png"; sourceTree = SOURCE_ROOT; };
 		A3C45C6A212E385200B2B8D2 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				A30EB380212653CE00F7D2B0 /* Main.storyboard */,
 				A3C45C6A212E385200B2B8D2 /* Quiz.swift */,
 				A30EB383212653CF00F7D2B0 /* Assets.xcassets */,
+				A33E0610212F797B00243B6D /* Splash.png */,
 				A30EB385212653CF00F7D2B0 /* LaunchScreen.storyboard */,
 				A30EB388212653CF00F7D2B0 /* Info.plist */,
 			);
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33E0611212F797B00243B6D /* Splash.png in Resources */,
 				A30EB387212653CF00F7D2B0 /* LaunchScreen.storyboard in Resources */,
 				A30EB384212653CF00F7D2B0 /* Assets.xcassets in Resources */,
 				A30EB382212653CE00F7D2B0 /* Main.storyboard in Resources */,
@@ -444,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Leo.JuanAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Leo.JuanAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
