@@ -89,7 +89,7 @@ class JuanAppViewController: UIViewController {
         switch sender.tag {
         case 0:
             print("1");
-            labelPreguntas.text = self.modeloQuiz
+            labelPreguntas.text = self.modeloQuiz.preguntas(numeroDeCategoria: 0);
         case 1:
             print("2");
         case 2:
@@ -104,8 +104,8 @@ class JuanAppViewController: UIViewController {
         for j in 6...7{
             self.view.subviews[j].isHidden=false;
         }
-        botonAtras.isEnabled = false;
-        botonSiguiente.isEnabled = false;
+//        botonAtras.isEnabled = false;
+//        botonSiguiente.isEnabled = false;
         labelCategoria.isHidden = false;
         labelCategoria.text = sender.currentTitle;
         for i in 1...5{
