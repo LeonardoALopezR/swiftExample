@@ -25,6 +25,10 @@ class Quiz {
         return self.preguntas[preguntaActual];
     }
     
+    func preguntas() -> String{
+        
+    }
+    
     func respuesta() -> String{
         if (self.preguntaActual == -1){
             return "Haga clic en el boton siguiente pregunta";
