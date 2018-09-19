@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		A30EB379212653CE00F7D2B0 /* JuanAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuanAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30EB37C212653CE00F7D2B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A30EB37E212653CE00F7D2B0 /* JuanAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuanAppViewController.swift; sourceTree = "<group>"; };
+		A30EB37E212653CE00F7D2B0 /* JuanAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuanAppViewController.swift; sourceTree = "<group>"; usesTabs = 1; wrapsLines = 1; };
 		A30EB381212653CE00F7D2B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A30EB383212653CF00F7D2B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A30EB386212653CF00F7D2B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
