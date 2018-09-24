@@ -10,45 +10,38 @@ import Foundation
 
 class Quiz {
     
-    //MARK: -Propiedades del modelo
-//    let preguntasDeportes: Array<String> = ["¿Qué jugador ha disputado más partidos en la historia de la Champions League?","Después de Cristiano Ronaldo y Messi, ¿Quién ha marcado más goles en la Champions League?","¿En qué fase de Champions anotó Iniesta su famoso gol contra el Chelsea?","¿Cuántos títulos de Champions League tiene el Nottingham Forest?","Este equipo ganó la Final de la Champions League en su estadio"];
-//    let respuestasCorrectasDeportes=["Iker Casillas","Raúl González","Semifinales","2", "Inter de Milán"];
-//    let respuestasIncorrectasDeportes1=["Xavi Hernández","Ibrahimovic","Cuartos de final","0","Liverpool"];
-//    let respuestasIncorrectasDeportes2=["Raúl González","Henry","Final","1","Barcelona"];
-//    let respuestasIncorrectasDeportes3=["Gianluigi Buffon","Van Nistelrooy", "Octavos de final","3","Real Madrid"];
-    
+    //MARK: -Estructura de las respuestas
     struct Respuesta {
         var texto : String
         var correcto : Bool
     }
     
-    
+    //MARK: -Estructura de las preguntas que conecta con la estructura de las respuestas
     struct Pregunta {
         var texto : String
         var respuestas : [Respuesta]
     }
     
+    //MARK: -Estructura
     struct Categoria {
         var texto : String
         var preguntas : [Pregunta]
     }
     
+    //MARK: -Variables de apoyo para la creación del arreglo de enteros aleatoreos
     var numeroActual = -1;
     var numeroAnterior = -1;
     var numeroAnterior2 = -1;
     var numeroAnterior3 = -1;
+    var numbers:[Int] = [0,0,0,0];
+    //MARK: -Variables de apoyo para las preguntas aleatoreas y errores, aciertos que se muestran en el marcador
     var preguntaActual = 0;
     var preguntaAnterior = 0;
-    var numbers:[Int] = [0,0,0,0];
+    var aciertos = 0;
+    var errores = 0;
+    
     //MARK: -Metodos del modelo
-//    func pregunta() -> String{
-//        //FIXME: Que la primer pregunta no sea la segunda del arreglo
-//        self.preguntaActual += 1;
-//        if (self.preguntaActual == self.preguntas.count){
-//            self.preguntaActual = 0;
-//        }
-//        return self.preguntas[preguntaActual];
-//    }
+    //MARK: -Funcion que te regresa un arreglo de numeros aleatoreos para mostrar las respuestas en los botones
     func random() -> [Int]{
         for i in 0...3{
         numeroActual = Int(arc4random_uniform(4));
@@ -65,7 +58,8 @@ class Quiz {
         numeroAnterior = -1;
         return numbers;
 }
-    
+    //MARK: -Inicializador de preguntas y respuestas que tendra la aplicación
+    //MARK: -Este método pasa un arreglo de tipo categoria para su facil utilización más adelante
     func iniciar() -> [Categoria]{
         let respuestasDeportes: [[Respuesta]]=[[
             Respuesta(texto:"Iker Casillas",correcto:true),
@@ -124,10 +118,10 @@ class Quiz {
         ]
         
         let respuestasSuperHeroes: [[Respuesta]]=[[
-            Respuesta(texto:"Capitán América",correcto:true),
-            Respuesta(texto:"Spider-Man",correcto:false),
-            Respuesta(texto:"Wolverin",correcto:false),
-            Respuesta(texto:"Cable",correcto:false)
+                Respuesta(texto:"Capitán América",correcto:true),
+                Respuesta(texto:"Spider-Man",correcto:false),
+                Respuesta(texto:"Wolverin",correcto:false),
+                Respuesta(texto:"Cable",correcto:false)
             ],[
                 Respuesta(texto:"Joe Chill",correcto:true),
                 Respuesta(texto:"Slade Wilson",correcto:false),
@@ -152,10 +146,10 @@ class Quiz {
         ]
         
         let respuestasPixar: [[Respuesta]]=[[
-            Respuesta(texto:"Andy",correcto:true),
-            Respuesta(texto:"Randy",correcto:false),
-            Respuesta(texto:"Billy",correcto:false),
-            Respuesta(texto:"Tony",correcto:false)
+                Respuesta(texto:"Andy",correcto:true),
+                Respuesta(texto:"Randy",correcto:false),
+                Respuesta(texto:"Billy",correcto:false),
+                Respuesta(texto:"Tony",correcto:false)
             ],[
                 Respuesta(texto:"Cualquiera puede cocinar",correcto:true),
                 Respuesta(texto:"El secreto de la gastronomía",correcto:false),
@@ -180,10 +174,10 @@ class Quiz {
         ]
         
         let respuestasDeTodo: [[Respuesta]]=[[
-            Respuesta(texto:"Nueva Guinea",correcto:true),
-            Respuesta(texto:"Borneo",correcto:false),
-            Respuesta(texto:"Sumatra",correcto:false),
-            Respuesta(texto:"Madagascar",correcto:false)
+                Respuesta(texto:"Nueva Guinea",correcto:true),
+                Respuesta(texto:"Borneo",correcto:false),
+                Respuesta(texto:"Sumatra",correcto:false),
+                Respuesta(texto:"Madagascar",correcto:false)
             ],[
                 Respuesta(texto:"Etéreo",correcto:true),
                 Respuesta(texto:"Solido",correcto:false),
@@ -226,74 +220,43 @@ class Quiz {
             Pregunta(texto: "¿Cuánto tiempo dura la telaraña de Spiderman antes de disolverse?", respuestas: respuestasSuperHeroes[3]),
             Pregunta(texto: "¿Cómo se llamaba el clon de Peter Parker que tomó originalmente la identidad de 'Araña Escarlata'?", respuestas: respuestasSuperHeroes[4])
         ],[
-                Pregunta(texto: "¿Cual es el nombre del dueño de Woody?", respuestas: respuestasPixar[0]),
-                Pregunta(texto: "¿Cuál es el nombre del libro del chef Gusteau?", respuestas: respuestasPixar[1]),
-                Pregunta(texto: "¿Que tipo de pez es Nemo?", respuestas: respuestasPixar[2]),
-                Pregunta(texto: "¿Cual es la dirección donde está Nemo?", respuestas: respuestasPixar[3]),
-                Pregunta(texto: "¿Cómo se llama el lugar donde viven los monstruos de Monsters, Inc.?", respuestas: respuestasPixar[4])
+            Pregunta(texto: "¿Cual es el nombre del dueño de Woody?", respuestas: respuestasPixar[0]),
+            Pregunta(texto: "¿Cuál es el nombre del libro del chef Gusteau?", respuestas: respuestasPixar[1]),
+            Pregunta(texto: "¿Que tipo de pez es Nemo?", respuestas: respuestasPixar[2]),
+            Pregunta(texto: "¿Cual es la dirección donde está Nemo?", respuestas: respuestasPixar[3]),
+            Pregunta(texto: "¿Cómo se llama el lugar donde viven los monstruos de Monsters, Inc.?", respuestas: respuestasPixar[4])
         ],[
-                Pregunta(texto: "Hay alrededor de 6.000 lenguas en todo el mundo. Alrededor de 1.000 de ellas se hablan en una única isla. ¿Cuál es?", respuestas: respuestasDeTodo[0]),
-                Pregunta(texto: "¿Cuál de los siguientes no es un estado de la materia?", respuestas: respuestasDeTodo[1]),
-                Pregunta(texto: "¿Dónde queda el Parque Nacional de Banff?", respuestas: respuestasDeTodo[2]),
-                Pregunta(texto: "¿Qué inventaron los hermanos Lumière?", respuestas: respuestasDeTodo[3]),
-                Pregunta(texto: "¿Cómo muere don Quijote?", respuestas: respuestasDeTodo[4])
+            Pregunta(texto: "Hay alrededor de 6.000 lenguas en todo el mundo. Alrededor de 1.000 de ellas se hablan en una única isla. ¿Cuál es?", respuestas: respuestasDeTodo[0]),
+            Pregunta(texto: "¿Cuál de los siguientes no es un estado de la materia?", respuestas: respuestasDeTodo[1]),
+            Pregunta(texto: "¿Dónde queda el Parque Nacional de Banff?", respuestas: respuestasDeTodo[2]),
+            Pregunta(texto: "¿Qué inventaron los hermanos Lumière?", respuestas: respuestasDeTodo[3]),
+            Pregunta(texto: "¿Cómo muere don Quijote?", respuestas: respuestasDeTodo[4])
             ]
     ]
     
         let categorias : [Categoria] = [
-        Categoria(texto: "Deportes", preguntas: preguntas[0]),
-        Categoria(texto: "Videojuegos", preguntas: preguntas[1]),
-        Categoria(texto: "Super Heroes", preguntas: preguntas[2]),
-        Categoria(texto: "Pixar", preguntas: preguntas[3]),
-        Categoria(texto: "De todo", preguntas: preguntas[4])
+            Categoria(texto: "Deportes", preguntas: preguntas[0]),
+            Categoria(texto: "Videojuegos", preguntas: preguntas[1]),
+            Categoria(texto: "Super Heroes", preguntas: preguntas[2]),
+            Categoria(texto: "Pixar", preguntas: preguntas[3]),
+            Categoria(texto: "De todo", preguntas: preguntas[4])
         ]
         
         return categorias;
 }
-    
+    //MARK: -La función que pasa todos lo valores a ser mostrados en las vistas al controlador
     func preguntas(numeroDeCategoria: Int) -> (Pregunta,[Int]){
         var categorias = iniciar();
+        //MARK: -Arreglo de números aleatoreos del 0 al 3
         let nums = random();
+        //MARK: -Un numero aleatoreo del 0 al 4
         let numeroDePregunta = aleatoreos();
         print(nums);
-//        switch numeroDeCategoria {
-//        case 0:
-//            return preguntasDeportes[aleatoreos()];
+        //MARK: -Se regresa una tupla de tipo pregunta y arreglo de enteros, el tipo pregunta contiene tanto la pregunta como sus respuestas
         return (pregunta: categorias[numeroDeCategoria].preguntas[numeroDePregunta],numeros: nums);
-//        default:
-//            print("Esto no sucedera");
-//        }
-//        return "Error faltal";
     }
     
-//    func respuestas(numeroDeCategoria: Int,numeroDeBoton: Int) -> String{
-//        switch numeroDeCategoria {
-//        case 0:
-//            switch numeroDeBoton{
-//            case 1:
-//                return respuestasCorrectasDeportes[preguntaAnterior];
-//            case 2:
-//                return respuestasIncorrectasDeportes1[preguntaAnterior];
-//            case 3:
-//                return respuestasIncorrectasDeportes2[preguntaAnterior];
-//            case 4:
-//                return respuestasIncorrectasDeportes3[preguntaAnterior];
-//            default:
-//                print("Esto no sucedera");
-//            }
-//        default:
-//            print("Esto no sucedera");
-//        }
-//        return "Algo";
-//    }
-//    func respuesta() -> String{
-//        if (self.preguntaActual == -1){
-//            return "Haga clic en el boton siguiente pregunta";
-//        }else{
-//            return self.respuestas[preguntaActual];
-//        }
-//    }
-    //TODO: Que el usuario defina sus preguntas
+    //MARK: -Este método regresa un número aleatoreo del 0 al 4
     func aleatoreos() -> Int{
         preguntaActual = Int(arc4random_uniform(5));
         while preguntaAnterior == preguntaActual {
@@ -301,5 +264,36 @@ class Quiz {
         }
         preguntaAnterior = preguntaActual;
         return preguntaActual
+    }
+    
+    //MARK: -Este método regresa una tupla la cual contiene los marcadores guardados por el usuario
+    func obtenerMarcador() -> (Int,Int){
+        aciertos = UserDefaults.standard.integer(forKey: "idAciertos");
+        errores = UserDefaults.standard.integer(forKey: "idErrores");
+        
+        return (aciertos, errores);
+    }
+    
+    //MARK: -Este método aumenta 1 a los aciertos o errores que tenga el usuario y los guarda en memoria
+    func aumentarMarcador(erroresAciertos: Bool) -> Int{
+        if(erroresAciertos){
+             aciertos = UserDefaults.standard.integer(forKey: "idAciertos");
+            aciertos += 1;
+            UserDefaults.standard.set(aciertos, forKey: "idAciertos");
+            return aciertos;
+        }else{
+             errores = UserDefaults.standard.integer(forKey: "idErrores");
+            errores += 1;
+            UserDefaults.standard.set(errores, forKey: "idErrores");
+            return errores;
+        }
+    }
+    
+    //MARK: -Se reinicia el marcador
+    func reiniciarMarcador(){
+        errores = 0;
+        aciertos = 0;
+        UserDefaults.standard.set(aciertos, forKey: "idAciertos");
+        UserDefaults.standard.set(errores, forKey: "idErrores");
     }
 }
