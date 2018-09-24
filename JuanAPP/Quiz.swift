@@ -11,6 +11,7 @@ import Foundation
 class Quiz {
     
     //MARK: -Propiedades del modelo
+    //TODO: -Cambiar arrglos por diccionarios
     let preguntasDeportes: Array<String> = ["¿Qué jugador ha disputado más partidos en la historia de la Champions League?","Después de Cristiano Ronaldo y Messi, ¿Quién ha marcado más goles en la Champions League?","¿En qué fase de Champions anotó Iniesta su famoso gol contra el Chelsea?","¿Cuántos títulos de Champions League tiene el Nottingham Forest?","Este equipo ganó la Final de la Champions League en su estadio"];
     let respuestasCorrectasDeportes=["Iker Casillas","Raúl González","Semifinales","2", "Inter de Milán"];
     let respuestasIncorrectasDeportes1=["Xavi Hernández","Ibrahimovic","Cuartos de final","0","Liverpool"];
